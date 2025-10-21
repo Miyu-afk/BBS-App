@@ -7,9 +7,8 @@ import { supabase } from "./lib/supabaseClient";
 import { useNavigate } from "react-router-dom";
 
 
-
 interface BBSProps {
-  id: number;
+  title: string;
   name: string;
   date: Date;
   text: string;
@@ -88,7 +87,7 @@ useEffect(() => {
 
   return (
     <>
-      <BBSBody />
+      <BBSBody addBbs={addBbs} />
     </>
   );
 }

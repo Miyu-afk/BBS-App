@@ -12,6 +12,10 @@ const BBSContent = () => {
           <div className="mb-5 ml-5">
             <p>本文</p>
           </div>
+          <div className="flex justify-between mb-5">
+          <button className="btn ml-5 p-0.5 border rounded">編集</button>
+          <button className="btn mr-5 p-0.5 border rounded">削除</button>
+          </div>
         </div>
       </div>
     </>

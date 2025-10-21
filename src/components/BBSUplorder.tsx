@@ -1,24 +1,93 @@
-const BBSUploader = () => {
+import { useState } from "react";
+import { data } from "react-router";
+
+interface BBSProps {
+  title: string;
+  name: string;
+  date: Date;
+  text: string;
+}
+
+interface BBSUploaderProps {
+  addBbs: (data: BBSProps) => void;
+}
+
+const BBSUploader = ({ addBbs }: BBSUploaderProps) => {
+  const [title, setTitle] = useState("");
+  const [name, setName] = useState("");
+  const [content, setContent] = useState("");
+
+  const allClean = () => {
+    setTitle("");
+    setName("");
+    setContent("");
+  };
+
   return (
     <>
-      <div className="flex justify-center mt-5">
-        <div className="shadow w-5/6 rounded">
-          <div className="flex justify-center items-center">
-            <input 
+      <div className="shadow rounded flex flex-col gap-4 w-5/6">
+        <form className="shadow rounded flex flex-col gap-4 w-full">
+          <input
+            value={title}
+            onChange={(e) => {
+              setTitle(e.target.value);
+            }}
             type="text"
             placeholder="title"
-            className="inline-block font-bold text-lg"></input>
-          </div>
-          <div className="flex justify-end">
-            <input 
+            className="inline-block font-bold text-lg text-center"
+          ></input>
+          <input
+            value={name}
+            onChange={(e) => setName(e.target.value)}
             type="text"
             placeholder="name"
-             className="inline-block mr-5"></input>
+            className="mr-5 text-right"
+          ></input>
+          <input
+            value={content}
+            onChange={(e) => setContent(e.target.value)}
+            type="text"
+            placeholder="本文"
+            className="ml-5 h-25"
+          ></input>
+          <div className=" flex items-center justify-between">
+            <button
+              onClick={(e) => {
+                e.preventDefault();
+
+                const hasInput =
+                  title.trim() !== "" ||
+                  name.trim() !== "" ||
+                  content.trim() !== "";
+                if (!hasInput) {
+                  alert("入力してください");
+                  return;
+                }
+
+                const dataToSave: BBSProps = {
+                  name: name,
+                  title: title,
+                  text: content,
+                  date: new Date(),
+                };
+
+                addBbs(dataToSave);
+                allClean();
+              }}
+              className="btn border rounded p-1 ml-2 mb-2 bg-green-500 w-20"
+            >
+              <p className="text-white">投稿</p>
+            </button>
+            <button
+              onClick={() => {
+                allClean();
+              }}
+              className="btn border rounded p-1 mr-2 mb-2 bg-red-400 w-20"
+            >
+              <p className="text-white">取り消し</p>
+            </button>
           </div>
-          <div className="mb-5 ml-5">
-            <input type="text" placeholder="本文"></input>
-          </div>
-        </div>
+        </form>
       </div>
     </>
   );

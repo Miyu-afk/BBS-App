@@ -1,7 +1,18 @@
 import BBSContent from "./BBSContent";
 import BBSUploader from "./BBSUplorder";
 
-const BBSBody = () => {
+interface BBSProps {
+  title: string;
+  name: string;
+  date: Date;
+  text: string;
+}
+
+interface BBSBodyProps{
+  addBbs: (data:BBSProps) => void;
+}
+
+const BBSBody = ({addBbs}:BBSBodyProps) => {
   return (
     <>
     <div className="h-dvh">
@@ -12,7 +23,7 @@ const BBSBody = () => {
       <BBSContent />
       </div>
       <div className="fixed bottom-30 flex justify-center w-full">
-      <BBSUploader />
+      <BBSUploader addBbs={addBbs}/>
       </div>
       </div>
     </>
