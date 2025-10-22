@@ -34,7 +34,7 @@ const BBSUploader = ({ addBbs }: BBSUploaderProps) => {
             }}
             type="text"
             placeholder="title"
-            className="inline-block font-bold text-lg text-center"
+            className="inline-block font-bold text-lg text-center "
           ></input>
           <input
             value={name}
@@ -43,14 +43,13 @@ const BBSUploader = ({ addBbs }: BBSUploaderProps) => {
             placeholder="name"
             className="mr-5 text-right"
           ></input>
-          <input
+          <textarea
             value={content}
             onChange={(e) => setContent(e.target.value)}
-            type="text"
             placeholder="本文"
-            className="ml-5 h-25"
-          ></input>
-          <div className=" flex items-center justify-between">
+            className="ml-5 h-25 align-top"
+          ></textarea>
+          <div className=" flex items-center justify-between ">
             <button
               onClick={(e) => {
                 e.preventDefault();

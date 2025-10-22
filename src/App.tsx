@@ -31,15 +31,17 @@ function App() {
     const companyId = localStorage.getItem("company_id")
     setCompanyIdData(companyId)
 
-    if(!companyId && location.pathname !== "/"){
+    if(!companyId){
+    if(location.pathname !== "/"){
       navigate("/");
     return;
+    }
   }
 
   const { data, error } = await supabase
   .from("company-data")
   .select("*")
-  .eq("company_id", companyId)
+  .eq("company_id", Number(companyId))
   .single();
   if(error){
     console.error("Supabase Fetch Error:", error);
@@ -48,6 +50,8 @@ function App() {
   } 
   setCompanyData(data as COMPANYProps);
 };
+console.log("companyIdData:", companyIdData)
+console.log("companyData:", companyData)
 
 useEffect(() => {
   fetchCompany();
@@ -70,12 +74,12 @@ useEffect(() => {
     if(companyIdData){
       fetchBbs();
     }
-  }, []);
+  }, [companyIdData]);
 
   const addBbs = async (newBbsData:BBSProps) => {
     const {error} = await supabase
     .from("App-Content")
-    .insert([newBbsData]);
+    .insert([newBbsData]);    
     if(error){
       console.error("Supabase Insert Error", error);
       alert("登録に失敗しました。");
