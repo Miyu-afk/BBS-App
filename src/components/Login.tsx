@@ -28,7 +28,6 @@ const Login = () => {
         .eq("company_id", companyIdNumber)
         .eq("pass", passwordTrimmed);
 
-      console.log("Supabase RESULT:", { data, error });
 
       if (error) {
         setError("データベースの取得に失敗しました");

@@ -3,15 +3,15 @@ import { createRoot } from "react-dom/client";
 import "./index.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Login from "./components/Login.tsx";
-
-
+import App from "./App.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <BrowserRouter>
-    <Routes>
-      <Route path="/" element={<Login />} />
-    </Routes>
+      <Routes>
+        <Route path="/" element={<Login />} />
+        <Route path="/main" element={<App  />} />
+      </Routes>
     </BrowserRouter>
   </StrictMode>
 );
