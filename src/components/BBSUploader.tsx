@@ -2,16 +2,24 @@ import { useState } from "react";
 import { data } from "react-router";
 
 interface BBSProps {
+  id: number
   title: string;
   name: string;
   date: Date;
   text: string;
-  affiliation_id:number;
+}
+
+interface NewBBSProps {
+  title: string;
+  name: string;
+  date: Date;
+  text: string;
+   affiliation_id: number;
 }
 
 
 interface BBSUploaderProps {
-  addBbs: (data: BBSProps) => void;
+  addBbs: (data: NewBBSProps) => void;
   companyIdData: string | null | undefined;
 }
 
@@ -66,7 +74,7 @@ const BBSUploader = ({ addBbs, companyIdData }: BBSUploaderProps) => {
                   return;
                 }
 
-                const dataToSave: BBSProps = {
+                const dataToSave: NewBBSProps = {
                   name: name,
                   title: title,
                   text: content,
