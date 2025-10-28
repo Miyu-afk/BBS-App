@@ -2,7 +2,7 @@ import { useState } from "react";
 import { data } from "react-router";
 
 interface BBSProps {
-  id: number
+  id: number;
   title: string;
   name: string;
   date: Date;
@@ -14,9 +14,8 @@ interface NewBBSProps {
   name: string;
   date: Date;
   text: string;
-   affiliation_id: number;
+  affiliation_id: number;
 }
-
 
 interface BBSUploaderProps {
   addBbs: (data: NewBBSProps) => void;
@@ -79,7 +78,7 @@ const BBSUploader = ({ addBbs, companyIdData }: BBSUploaderProps) => {
                   title: title,
                   text: content,
                   date: new Date(),
-                  affiliation_id: Number(companyIdData)
+                  affiliation_id: Number(companyIdData),
                 };
 
                 addBbs(dataToSave);

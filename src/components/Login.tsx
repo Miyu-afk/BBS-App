@@ -51,24 +51,24 @@ const Login = () => {
 
   return (
     <div className="loginForm flex flex-col gap-3 justify-center items-center mt-15">
-      <form onSubmit={handleSubmit} className="flex flex-col gap-3 w-64">
+      <form onSubmit={handleSubmit} className="flex flex-col gap-3 w-64 md:w-100">
         <input
           value={companyId}
           type="text"
           placeholder="企業ID"
           onChange={(e) => setCompanyId(e.target.value)}
-          className="input border rounded h-7"
+          className="input border rounded h-7 md:h-12 w-64 md:w-[400px] placeholder:text-lg md:placeholder:text-2xl"
         />
         <input
           value={password}
           type="password"
           placeholder="PASSWORD"
           onChange={(e) => setPassword(e.target.value)}
-          className="input border rounded h-7"
+          className="input border rounded h-7 md:h-12 w-64 md:w-[400px] placeholder:text-lg md:placeholder:text-2xl"
         />
         <button
           type="submit"
-          className="btn border rounded p-1 bg-emerald-400 mt-2"
+          className="btn border rounded p-1 bg-emerald-400 mt-2 md:h-12 w-64 md:w-[400px] text-lg md:text-2xl"
         >
           ログイン
         </button>

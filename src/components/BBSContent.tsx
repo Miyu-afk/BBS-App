@@ -30,14 +30,6 @@ const BBSContent = ({ alreadyBbs, updateBbs, deleteBbs }: BBSContentProps) => {
     }
   };
 
-  const handleDelete = async () => {
-    if (editingId === null) return;
-    if (editingId) {
-      await deleteBbs(editingId);
-      setEditingId(null);
-    }
-  };
-
   return (
     <>
       {alreadyBbs
@@ -73,7 +65,14 @@ const BBSContent = ({ alreadyBbs, updateBbs, deleteBbs }: BBSContentProps) => {
                         >
                           OK
                         </button>
-                        <button className="btn ml-5 p-0.5 border rounded">
+                        <button
+                          className="btn ml-5 p-0.5 border rounded"
+                          onClick={() => {
+                            setEditingId(null);
+                            setEditTitle("");
+                            setEditText("");
+                          }}
+                        >
                           キャンセル
                         </button>
                       </div>
@@ -89,7 +88,10 @@ const BBSContent = ({ alreadyBbs, updateBbs, deleteBbs }: BBSContentProps) => {
                         編集
                       </button>
                     )}
-                    <button className="btn mr-5 p-0.5 border rounded">
+                    <button
+                      className="btn mr-5 p-0.5 border rounded"
+                      onClick={() => deleteBbs(bbs.id)}
+                    >
                       削除
                     </button>
                   </div>

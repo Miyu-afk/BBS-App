@@ -7,11 +7,12 @@ import { supabase } from "./lib/supabaseClient";
 import { useNavigate } from "react-router-dom";
 
 interface BBSProps {
-  id: number
+  id: number;
   title: string;
   name: string;
   date: Date;
   text: string;
+  affiliation_id: number;
 }
 
 interface NewBBSProps {
@@ -23,7 +24,7 @@ interface NewBBSProps {
 
 interface COMPANYProps {
   id: number;
-  name: string;
+  company_name: string;
   company_id: number;
 }
 
@@ -124,6 +125,7 @@ function App() {
         companyIdData={companyIdData}
         deleteBbs={deleteBbs}
         updateBbs={updateBbs}
+        companyData={companyData}
       />
     </>
   );
