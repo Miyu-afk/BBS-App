@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 interface NewBBSProps {
   title: string;
@@ -18,11 +18,17 @@ const BBSUploader = ({ addBbs, companyIdData }: BBSUploaderProps) => {
   const [name, setName] = useState("");
   const [content, setContent] = useState("");
 
+  useEffect(() => {
+    const storedName =  localStorage.getItem("employee_name");
+    if (storedName) setName(storedName);;
+  }, []);
+
   const allClean = () => {
     setTitle("");
     setName("");
     setContent("");
   };
+
 
   return (
     <>
@@ -39,9 +45,8 @@ const BBSUploader = ({ addBbs, companyIdData }: BBSUploaderProps) => {
           ></input>
           <input
             value={name}
-            onChange={(e) => setName(e.target.value)}
             type="text"
-            placeholder="name"
+            readOnly
             className="mr-5 text-right"
           ></input>
           <textarea
