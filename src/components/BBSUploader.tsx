@@ -1,13 +1,5 @@
 import { useState } from "react";
-import { data } from "react-router";
 
-interface BBSProps {
-  id: number;
-  title: string;
-  name: string;
-  date: Date;
-  text: string;
-}
 
 interface NewBBSProps {
   title: string;
@@ -57,7 +49,7 @@ const BBSUploader = ({ addBbs, companyIdData }: BBSUploaderProps) => {
             value={content}
             onChange={(e) => setContent(e.target.value)}
             placeholder="本文"
-            className="ml-5 h-25 align-top"
+            className="ml-5 h-15 align-top"
           ></textarea>
           <div className=" flex items-center justify-between ">
             <button

@@ -1,10 +1,7 @@
 import { useEffect, useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
 import "./App.css";
 import BBSBody from "./components/BBSBody";
 import { supabase } from "./lib/supabaseClient";
-import { useNavigate } from "react-router-dom";
 
 interface BBSProps {
   id: number;
