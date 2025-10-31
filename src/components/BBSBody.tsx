@@ -68,9 +68,19 @@ const BBSBody = ({
     return bbsDate === dateValue;
   });
 
+  const handleLogout = () => {
+    localStorage.removeItem("company_id");
+    localStorage.removeItem("pass");
+    window.location.href = "/";
+  };
+
   return (
     <>
       <div className="h-dvh">
+        <button className="absolute top-8 left-8" onClick={handleLogout}>
+          戻る
+        </button>
+
         <div>
           <div className="flex justify-center mt-5">
             <p className="text-lg md:text-2xl">
