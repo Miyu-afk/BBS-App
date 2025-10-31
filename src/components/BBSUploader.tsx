@@ -1,6 +1,5 @@
 import { useState } from "react";
 
-
 interface NewBBSProps {
   title: string;
   name: string;
@@ -76,7 +75,12 @@ const BBSUploader = ({ addBbs, companyIdData }: BBSUploaderProps) => {
                 addBbs(dataToSave);
                 allClean();
               }}
-              className="btn border rounded p-1 ml-2 mb-2 bg-green-500 w-20"
+              disabled={!name.trim()}
+              className={`btn border rounded p-1 ml-2 mb-2 w-20 ${
+                name.trim()
+                  ? "bg-green-500 text-white"
+                  : "bg-gray-300 text-gray-500 cursor-not-allowed"
+              }`}
             >
               <p className="text-white">投稿</p>
             </button>
