@@ -39,7 +39,7 @@ const BBSUploader = ({ addBbs, companyIdData }: BBSUploaderProps) => {
             onChange={(e) => {
               setTitle(e.target.value);
             }}
-            type="text"
+            type="tex"
             placeholder="title"
             className="inline-block font-bold text-lg text-center "
           ></input>
