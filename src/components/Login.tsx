@@ -7,7 +7,6 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const navigate = useNavigate();
-  const [employeeName, setEmployeeName] = useState("");
   const [employee_id, setEmployeeId] = useState("");
 
   const handleSubmit = async (event: FormEvent) => {
